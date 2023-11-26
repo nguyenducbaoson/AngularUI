@@ -1,0 +1,17 @@
+<h1>Nguyen Duc Bao Son</h1>
+<h2>Angular 16 - Material UI Tutorial</h2>
+
+<button matBadge="1" matBadgeColor="accent" mat-raised-button color="primary">Welcome</button>
+<br/>
+<div>
+    <button matBadge="1" matBadgeColor="accent" matBadgeSize="small" mat-raised-button color="primary">Welcome</button>
+</div>
+<br/>
+<div>
+    <button matBadge="1" matBadgeColor="accent" matBadgePosition="before" matBadgeSize="large" mat-raised-button color="primary">Welcome</button>
+</div>
+<mat-icon matBadge="3">home</mat-icon>
+<td mat-cell *matCellDef="let element">
+    <p *ngIf="element.status == 'Actived'" class="status active">{{element.status}}</p>
+    <p *ngIf="element.status == 'Block'"  class="status block">{{element.status}}</p>
+</td>

@@ -1,0 +1,11 @@
+{
+    "customer":[
+        {
+            "code": 1,
+            "name": "Nguyen Duc Bao Son",
+            "phone":"1234567890",
+            "email":"son@gmail.com",
+            "Status": "Active"
+        }
+    ]
+}

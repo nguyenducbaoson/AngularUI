@@ -1,0 +1,92 @@
+<mat-card>
+    <mat-card-header>
+        <h1>All Students</h1>
+    </mat-card-header>
+    <mat-card-header>
+        <input type="search" placeholder="Seach...">
+        <button style="margin-left: 70%; background-color: rgb(92, 88, 88); color:white;" (click)="addstudent()" mat-raised-button>Add User (+)</button>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+        <table matSort mat-table [dataSource]="students" class="mat-elevation-z8 demo-table">
+            <div>
+                            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+                <th style="background-color: rgb(92, 88, 88); color:white;" mat-header-cell *matHeaderCellDef>No.</th>
+                <td mat-cell *matCellDef="let element">{{element.position}}</td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th style="background-color: rgb(92, 88, 88); color:white;" mat-sort-header mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let element">{{element.studentName}}</td>
+            </ng-container>
+
+            <!-- dateOfBirth Column -->
+            <ng-container matColumnDef="dateOfBirth">
+                <th style="background-color: rgb(92, 88, 88); color:white;" mat-header-cell *matHeaderCellDef>Date Of Birth</th>
+                <td mat-cell *matCellDef="let element">{{element.dateOfBirth}}</td>
+            </ng-container>
+
+            <!-- adress Column -->
+            <ng-container matColumnDef="adress">
+                <th style="background-color: rgb(92, 88, 88); color:white;" mat-header-cell *matHeaderCellDef>Address</th>
+                <td mat-cell *matCellDef="let element">{{element.address}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="class">
+                <th style="background-color: rgb(92, 88, 88); color:white;" mat-header-cell *matHeaderCellDef>Class</th>
+                <td mat-cell *matCellDef="let element">{{element.className}}</td>
+            </ng-container>
+
+            <!-- status Column -->
+            <ng-container matColumnDef="status">
+                <th style="background-color: rgb(92, 88, 88); color:white;" mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element">
+                    <p *ngIf="element.status == 'Actived'" class="status actived">{{element.status}}</p>
+                    <p *ngIf="element.status == 'Block'" class="status block">{{element.status}}</p>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th style="background-color: rgb(92, 88, 88); color:white;" mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef="let element">
+                    <a class="btn btn-outline-success"><i class="fa-regular fa-circle-info"></i></a>
+                    &nbsp;
+                    <a class="btn btn-outline-warning" (click)="editstudent(element.studentId)"><i class="fa-solid fa-pen-to-square"></i></a>
+                    &nbsp;
+                    <a class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </div>
+        </table>
+    </mat-card-content>
+    <br>
+    <mat-card-footer>
+        <div class="row" style="padding-left: 35%;">
+            <div class="col-md-12 d-flex justify-content-center">
+                <div class="form-inline float-left mr-1">
+                    <select class="fomr-control" style="height: 37px;" [value]="studentsPerPage" (change)="changePageSize($event)">
+                        <option value="5">5 Per Page</option>
+                        <option value="10">10 Per Page</option>
+                        <option value="15">15 Per Page</option>
+                        <option value="20">20 Per Page</option>
+                    </select>
+                </div>
+                <div class="btn-group flot-right">
+                    <button class="btn btn-outline-primary" (click)="previousPage()" *ngIf="selectedPage < 2 " disabled><< Previous</button>
+                    <button class="btn btn-outline-primary" (click)="previousPage()" *ngIf="selectedPage >= 2 " enable><< Previous</button> 
+                    <button class="btn btn-outline-primary active" *ngFor="let page of pageNumber" (click)="changePage(page)" [class.active]="page == selectedPage">{{page}}</button> 
+                    <button class="btn btn-outline-primary" (click)="nextPage()"  *ngIf="selectedPage < maxPageNumber" enable >Next >></button>
+                    <button class="btn btn-outline-primary" (click)="nextPage()"  *ngIf="selectedPage == maxPageNumber" disabled >Next >></button>
+
+                    <!-- <button class="btn btn-outline-primary" (click)="nextPage()" >Next >></button>  -->
+
+                </div>
+            </div>
+        </div>
+     </mat-card-footer>
+        
+</mat-card>

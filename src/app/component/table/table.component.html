@@ -1,0 +1,56 @@
+
+<div>
+    <table mat-table [dataSource]="students" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.position}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{element.studentName}}</td>
+        </ng-container>
+
+        <!-- dateOfBirth Column -->
+        <ng-container matColumnDef="dateOfBirth">
+            <th mat-header-cell *matHeaderCellDef>Date Of Birth</th>
+            <td mat-cell *matCellDef="let element">{{element.dateOfBirth}}</td>
+        </ng-container>
+
+        <!-- adress Column -->
+        <ng-container matColumnDef="adress">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let element">{{element.address}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="class">
+            <th mat-header-cell *matHeaderCellDef>Class</th>
+            <td mat-cell *matCellDef="let element">{{element.className}}</td>
+        </ng-container>
+
+        <!-- status Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">
+                <p *ngIf="element.status == 'Actived'" class="status active">{{element.status}}</p>
+                <p *ngIf="element.status == 'Block'" class="status block">{{element.status}}</p>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>  
+            <td mat-cell *matCellDef="let element">
+                <a class="btn btn-outline-success"><i
+                    class="fa-regular fa-circle-info"></i></a>
+            &nbsp;
+            <a class="btn btn-outline-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+            &nbsp;
+            <a class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

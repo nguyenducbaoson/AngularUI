@@ -1,0 +1,76 @@
+<form [formGroup]="myform" (ngSubmit)="SaveStudent()">
+    <mat-card>
+        <mat-card-content>
+            <mat-form-field class="mat-50">
+                <mat-label>Name</mat-label>
+                <input formControlName="studentName" matInput>
+            </mat-form-field>
+    
+            <mat-form-field  class="mat-50">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <textarea matInput formControlName="address"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field class="mat-50">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-hint>dd/MM/yyyy</mat-hint>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div>
+                <mat-radio-group formControlName="gender" color="primary">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="FeMale">FeMale</mat-radio-button>
+                </mat-radio-group>
+                <mat-checkbox formControlName="status" color="primary">Is Active</mat-checkbox>
+            </div>
+        </mat-card-content>
+        <mat-card-footer>
+            <div style="margin: 2%;text-align: right;">
+                <button mat-raised-button type="submit" color="primary">Save</button>
+                <button mat-raised-button (click)="clearform()" color="warn">Clear</button>
+            </div>
+        </mat-card-footer>
+    </mat-card>
+    </form>
+
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-danger" id="exampleModal2Label">Login Form</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="myform" (ngSubmit)="SaveStudent()">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.studentName.errors }"  id="inputEmail4">
+                  <div *ngIf="submitted && f.studentName.errors" class="invalid-feedback">
+                    <div *ngIf="f.studentName.errors">Email is required</div>
+
+                 </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" id="inputPassword4">
+                  <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                    <div *ngIf="f.description.errors">Password is required</div>
+                 </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>

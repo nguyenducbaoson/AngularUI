@@ -1,0 +1,89 @@
+table {
+    width: 100%;
+  }
+  .status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .actived {
+    background-color: #3a5f2e;
+  }
+
+  .block {
+    background-color: rgb(168, 32, 32);
+  }
+  ng-containerr th{
+    text-align: center;
+    background-color:black; 
+    color:white;
+  }
+mat-card{
+    margin: 2%;
+}
+input[type=search]{
+    width: 400px;
+    height: 40px;
+    font-size: 16px;
+    padding: 0px 20px 0px 40px;
+    outline: none;
+    border: solid gray 2px;
+    background: url('/src/assets/img/9349901.png') 7px center no-repeat;
+    }
+    *{
+      box-sizing: border-box;
+
+  }
+  .paginator{
+    padding-left: 70%;
+      display: right;
+      justify-content: center;
+      align-items: center;
+      min-height: auto;
+  }
+  ul{
+      position: relative;
+      background: #fff;
+      display: flex;
+      padding: 10px 20px;
+      border-radius: 50px;
+  }
+  
+  ul li{
+      list-style: none;
+      line-height: 35px;
+      margin: 0 5px;
+  }
+  ul li.pageNumber{
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+  }
+  ul li a{
+      display: block;
+      text-decoration: none;
+      color: #777;
+      font-weight: 600;
+      border-radius: 50%;
+  }
+  ul li.pageNumber:hover a,
+  ul li.pageNumber.active a
+  {
+      background: #333;
+      color: #fff;
+  }
+  ul li:first-child{
+      margin-right: 30px;
+      font-weight: 700;
+      font-size: 15px;
+  }
+  div ul li:last-child{
+      margin-left: 30px;
+      font-weight: 700;
+      font-size: 15px;
+  }
